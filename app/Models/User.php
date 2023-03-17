@@ -17,7 +17,7 @@ class User extends Authenticatable
     }
     public function services()
     {
-        return $this->hasMany(Role::class);
+        return $this->hasMany(Service::class);
     }
 
 

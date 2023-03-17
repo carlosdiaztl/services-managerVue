@@ -50,6 +50,9 @@
                                 <a class="nav-link" href="{{ route('users.index') }}">Users</a>
                             </li>
                         @endif
+                        <li>
+                            <a class="nav-link" href="{{ route('services.index') }}">Tus Reservas</a>
+                        </li>
 
 
                     </ul>
@@ -122,13 +125,13 @@
 
                 @endif
                 @yield('content')
-                el rol del usuario autenticado es
+                {{-- el rol del usuario autenticado es
                 {{ optional(auth()->user())->role }}
                 <br>
                 @inject('RolControlle', 'App\Http\Controllers\RolController')
                 el primer admin es
 
-                {{ $RolControlle->index()->first()->name }}
+                {{ $RolControlle->index()->first()->name }} --}}
 
             </div>
         </main>
