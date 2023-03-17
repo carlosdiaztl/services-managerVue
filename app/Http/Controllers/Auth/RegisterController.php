@@ -77,8 +77,11 @@ class RegisterController extends Controller
         // dd($data['password']);
         // if ($data['image']->hasFile('image')) {
         // dd($data['image']);
+
+
+
         $path = $data['image']->store('public/images');
-        dd($data['image'], $path, $data);
+        // dd($data['image'], $path, $data);
         // }
         return User::create([
             'name' => $data['name'],
@@ -86,10 +89,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'image' => $path,
             'identification' => $data['identification'],
-
-
-
-
+            'phoneNumber' => $data['phoneNumber'],
         ]);
     }
 }
