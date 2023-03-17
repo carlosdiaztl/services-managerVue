@@ -41,9 +41,15 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
-
-                        <a class="nav-link" href="{{ route('home') }}">Menu</a>
+                        <li>
+                            <a class="nav-link" href="{{ route('home') }}">Menu</a>
                         </li>
+                        @inject('name', 'App\Services\Admin')
+                        @if ($name->isAdmin())
+                            <li>
+                                <a class="nav-link" href="{{ route('users.index') }}">Users</a>
+                            </li>
+                        @endif
 
 
                     </ul>
@@ -117,7 +123,7 @@
                 @endif
                 @yield('content')
                 el rol del usuario autenticado es
-                {{ auth()->user()->role->role }}
+                {{ optional(auth()->user())->role }}
                 <br>
                 @inject('RolControlle', 'App\Http\Controllers\RolController')
                 el primer admin es
